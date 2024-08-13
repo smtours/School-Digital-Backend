@@ -1,8 +1,9 @@
 const express=require("express")
 const dotenv=require("dotenv")
-const cors=require("cors")
 dotenv.config()
 const app=express();
+const cors=require("cors")
+const bodyparser=require("body-parser")
 app.use(express.json())
 app.use(cors())
 require("./config/db")
@@ -18,8 +19,9 @@ app.get("/",(req,res)=>{
 })
 
 //it uses port number for local testing
-app.listen(process.env.PORT,()=>{
-    console.log("Server is running on port 80")
-})
+const port = process.env.PORT || 80;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 
