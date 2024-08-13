@@ -11,7 +11,7 @@ const userRoutes=require("./routes/userRoutes")
 const forgetpassRoutes=require("./routes/forgetpassRoute")
 const adminRoutes=require("./routes/adminRoutes")
 app.use("/api/auth",userRoutes)
-app.use("/api/auth",forgetpassRoutes)
+app.use("/api/password",forgetpassRoutes)
 app.use("/api/admin",adminRoutes)
 
 app.get("/",(req,res)=>{
