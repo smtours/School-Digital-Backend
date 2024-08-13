@@ -18,7 +18,7 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(80,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Server is running on port 80")
 })
 
