@@ -17,7 +17,7 @@ app.get("/",(req,res)=>{
     res.send("Hello from school digital")
 })
 
-
+//it uses port number for local testing
 app.listen(process.env.PORT,()=>{
     console.log("Server is running on port 80")
 })
