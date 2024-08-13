@@ -44,6 +44,9 @@ const addOrUpdateInstitute = async (req, res) => {
     const { name, description, logo, country, address, phonenumber, websiteurl } = req.body;
     
     try {
+        if(req.user.role!=="admin"){
+            return res.status(401).json({message:"Not Allowed"})
+        }
         // Check if there is an existing institute
         let institute = await Institute.findOne();
 
@@ -68,7 +71,8 @@ const addOrUpdateInstitute = async (req, res) => {
                 country,
                 address,
                 phonenumber,
-                websiteurl
+                websiteurl,
+                admin:req.user.id
             });
 
             await newInstitute.save();
@@ -79,4 +83,4 @@ const addOrUpdateInstitute = async (req, res) => {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
-module.exports={getAllStudents,getAllEmployers,getAllParents}
+module.exports={getAllStudents,getAllEmployers,getAllParents,addOrUpdateInstitute}
