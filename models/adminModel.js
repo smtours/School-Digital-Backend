@@ -25,6 +25,9 @@ const adminschema=mongoose.Schema({
         type: Boolean,
         default: false,
       },
+      address:{
+        type:String
+      },
       emailtoken: {
         type: String,
       },
